@@ -1,0 +1,28 @@
+<openerp>
+    <data>
+        <record id="view_form" model="ir.ui.view">
+            <field name="name">test.form.view</field>
+            <field name="model">poly.son1</field>
+             <field name="arch" type="xml">
+                 <form string="test poly">
+                     <button type="object" name="tryout" string="tryout"
+                         class="oe_highlight"/>
+                 </form>
+            </field>
+        </record>        
+
+        <record model="ir.actions.act_window" id="mytest_action">
+            <field name="name">My test action</field>
+            <field name="res_model">poly.son1</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="main_menu_test_p" name="test"/>
+        <menuitem id="test_p2" name="test2"
+                  parent="main_menu_test_p"/>
+        <menuitem id="test_p3" name="test3" parent="test_p2"
+                  action="mytest_action"/>
+    </data>
+</openerp>
+
